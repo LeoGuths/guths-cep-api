@@ -1,12 +1,12 @@
-using Guths.CEP.API.Endpoints;
-using Guths.CEP.API.Refit;
-using Guths.CEP.API.Services;
-using Guths.CEP.API.Services.Interfaces;
+using Guths.Cep.Api.Endpoints;
+using Guths.Cep.Api.Refit;
+using Guths.Cep.Api.Services;
+using Guths.Cep.Api.Services.Interfaces;
 using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IViaCepIntegracao, ViaCepIntegracao>();
-builder.Services.AddRefitClient<IViaCepIntegracaoRefit>().ConfigureHttpClient(c =>
+builder.Services.AddScoped<IViaCepIntegration, ViaCepIntegration>();
+builder.Services.AddRefitClient<IViaCepIntegrationRefit>().ConfigureHttpClient(c =>
 {
     c.BaseAddress = new Uri("https://viacep.com.br");
 });

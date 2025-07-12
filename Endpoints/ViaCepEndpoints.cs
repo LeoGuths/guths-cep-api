@@ -1,17 +1,17 @@
-using Guths.CEP.API.Services.Interfaces;
+using Guths.Cep.Api.Services.Interfaces;
 
-namespace Guths.CEP.API.Endpoints;
+namespace Guths.Cep.Api.Endpoints;
 
 public static class ViaCepEndpoints
 {
     public static void MapViaCepEndpoints(this WebApplication app)
     {
-        app.MapGet("{cep}", BuscarDadosEndereco);
+        app.MapGet("{cep}", GetAddress);
     }
     
-    public static async Task<IResult> BuscarDadosEndereco(string cep, IViaCepIntegracao viaCepIntegracao)
+    public static async Task<IResult> GetAddress(string cep, IViaCepIntegration viaCepIntegration)
     {
-        var responseData = await viaCepIntegracao.ObterDadosViaCep(cep);
+        var responseData = await viaCepIntegration.GetAddressFromViaCep(cep);
 
         return responseData is null 
             ? Results.NotFound() 

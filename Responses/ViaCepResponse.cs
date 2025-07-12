@@ -1,4 +1,4 @@
-namespace Guths.CEP.API.Response;
+namespace Guths.Cep.Api.Responses;
 
 public sealed record ViaCepResponse()
 {
