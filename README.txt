@@ -24,9 +24,11 @@ API de consulta de CEP com fallback para múltiplos provedores, garantindo alta 
 ### Exemplo de requisição:
 ```http
 GET /api/cep/{cep}
+```
 
 ```bash
 curl -X GET "http://localhost:8080/api/cep/01001000"
+```
 
 ### Resposta de sucesso (200 OK)
 ```json
@@ -39,22 +41,27 @@ curl -X GET "http://localhost:8080/api/cep/01001000"
   "state": "Distrito Federal",
   "provider": "ViaCep"
 }
+```
 
 ## 🐳 Executando com Docker/Podman
 
 ### Construa a imagem
 ```bash
 podman build -t guths-cep-api .
+```
 
 ```bash
 docker build -t guths-cep-api .
+```
 
 ### Execute o container
 ```bash
 podman run -p 8080:8080 -p 8081:8081 -e ASPNETCORE_ENVIRONMENT=Development guths-cep-api
+```
 
 ```bash
 docker run -p 8080:8080 -p 8081:8081 -e ASPNETCORE_ENVIRONMENT=Development guths-cep-api
+```
 
 ## 🛠️ Desenvolvimento
 
