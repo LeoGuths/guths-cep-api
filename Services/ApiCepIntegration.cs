@@ -24,7 +24,7 @@ public sealed class ApiCepIntegration : IApiCepIntegration
         if (responseData is { IsSuccessStatusCode: true, Content: not null })
         {
             return new AddressResponse(
-                ZipCode: responseData.Content.Code,
+                ZipCode: responseData.Content.Code.Replace("-", string.Empty),
                 Street: responseData.Content.Address,
                 Neighborhood: responseData.Content.District,
                 City: responseData.Content.City,
